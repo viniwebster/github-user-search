@@ -8,10 +8,16 @@ const Button = styled.button`
     border: none;
     border-radius: 8px;
     font-family: ${primaryFont};
+    font-size: 1rem;
+    
     &:hover{
         background-color: ${primaryHover};
         transition: .2s;
         cursor: pointer;
+    }
+
+    @media screen and (max-width: 500px){
+        padding: .7rem .8rem;   
     }
 `
 

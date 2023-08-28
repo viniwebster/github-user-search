@@ -43,13 +43,12 @@ export default function ApiProvider({ children }: ApiProviderProps) {
   const [twitter, setTwitter] = useState<string | null>("");
   const [company, setCompany] = useState<string | null>("");
   const [blog, setBlog] = useState<string>("");
-  const [erro, setErro] = useState(false)
+  const [erro, setErro] = useState(false);
 
   useEffect(() => {
     axios
       .get<IUser>(`https://api.github.com/users/viniwebster`)
       .then((response) => {
-        console.log(response);
         setName(response.data.name);
         setUser(response.data.login);
         setIcon(response.data.avatar_url);
@@ -85,9 +84,9 @@ export default function ApiProvider({ children }: ApiProviderProps) {
         setCompany(response.data.company);
         setBlog(response.data.blog);
         setFollowing(response.data.following);
-        setErro(false)
+        setErro(false);
       })
-      .catch((erro) => setErro(true));
+      .catch(() => setErro(true));
   }
 
   return (
@@ -108,7 +107,7 @@ export default function ApiProvider({ children }: ApiProviderProps) {
         search: search,
         setSearch: setSearch,
         searchUser: searchUser,
-        erro: erro
+        erro: erro,
       }}
     >
       {children}

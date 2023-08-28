@@ -1,3 +1,4 @@
+import { dados } from 'context/ApiContext';
 import styled from 'styled-components';
 
 const IconProfile = styled.img`
@@ -7,9 +8,12 @@ const IconProfile = styled.img`
 `
 
 export default () => {
+
+    const { icon } = dados();
+
     return(
         <>
-            <IconProfile src='https://github.com/viniwebster.png'/>
+            <IconProfile src={icon}/>
         </>
     )
 }

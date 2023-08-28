@@ -7,6 +7,11 @@ const BoxDark = styled(Box)`
   background-color: ${bg};
   padding: 1rem 2rem;
   width: 100%;
+
+  @media screen and (max-width: 500px){
+    padding: 1rem;
+    text-align: center;
+  }
 `;
 
 const InfosUser = styled.ul`

@@ -13,6 +13,8 @@ const Socials = styled.section`
   @media screen and (max-width: 768px) {
     display: flex;
     flex-direction: column;
+    word-break: break-all;
+    font-size: 14px;
   }
 `;
 

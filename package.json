@@ -10,6 +10,7 @@
     "@types/node": "^16.18.41",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
+    "@types/styled-components": "^5.1.26",
     "axios": "^1.4.0",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
