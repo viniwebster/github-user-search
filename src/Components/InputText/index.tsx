@@ -9,7 +9,7 @@ const Form = styled.form`
     align-items: center;
     gap: 1rem;
     padding: .7rem;
-    background-color: ${bgSecondary};
+    background-color: ${({ theme }) => theme.bg};
     border-radius: .8rem;
 `
 
@@ -19,12 +19,12 @@ const Input = styled.input`
     background-color: transparent;
     border: none;
     outline: none;
-    color: ${txtHighContrast};
+    color: ${({ theme }) => theme.text};
     width: 100%;
     font-size: 1rem;
 
     &::placeholder{
-        color: ${txtHighContrast};
+        color: ${({ theme }) => theme.text};
         letter-spacing: 2px;
     }
     

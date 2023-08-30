@@ -5,6 +5,10 @@ import { GoOrganization } from "react-icons/go";
 import { txtHighContrast } from "UI/variables";
 import { dados } from "context/ApiContext";
 
+interface PropsSocialsIcons {
+  notFould?: string | number | null;
+}
+
 const Socials = styled.section`
   display: grid;
   gap: 1rem;
@@ -18,37 +22,27 @@ const Socials = styled.section`
   }
 `;
 
-interface PropsSocialsIcons {
-  notFould?: string | number | null;
-}
-
 const SocialsIcons = styled.div<PropsSocialsIcons>`
   display: flex;
   gap: 1rem;
   align-items: center;
-  color: ${({ notFould }) =>
-    notFould
-      ? "hsl(0, 2.14592274678112%, 54.313725490196084%)"
-      : txtHighContrast};
+  color: ${({ theme }) => theme.text};
   cursor: ${({ notFould }) => (notFould ? "default" : "pointer")};
   a {
-    color: ${({ notFould }) =>
-      notFould
-        ? "hsl(0, 2.14592274678112%, 54.313725490196084%)"
-        : txtHighContrast};
+    color: ${({ theme }) => theme.text};
   }
 `;
 
 export default () => {
   const { twitter, company, location, blog } = dados();
-  
+
   return (
     <Socials>
-      <SocialsIcons notFould={location === null ? "black" : ""}>
+      <SocialsIcons notFould={location === null ? 1 : 0}>
         <IoLocationOutline size={25} />
         {location ? location : "Not Available"}
       </SocialsIcons>
-      <SocialsIcons notFould={twitter === null ? "black" : ""}>
+      <SocialsIcons notFould={twitter === null ? 1 : 0}>
         <BsTwitter size={25} />
         <a
           href={twitter ? `https://www.twitter.com/${twitter}` : undefined}
@@ -57,13 +51,13 @@ export default () => {
           {twitter ? `@${twitter}` : "Not Available"}
         </a>
       </SocialsIcons>
-      <SocialsIcons notFould={blog === "" ? "black" : ""}>
+      <SocialsIcons notFould={blog === "" ? 1 : 0}>
         <BsLink45Deg size={25} />
         <a href={blog ? blog : undefined} target="_blank">
           {blog ? blog : "Not Available"}
         </a>
       </SocialsIcons>
-      <SocialsIcons notFould={company === null ? "black" : ""}>
+      <SocialsIcons notFould={company === null ? 1 : 0}>
         <GoOrganization size={25} />
         {company ? company : "Not Available"}
       </SocialsIcons>

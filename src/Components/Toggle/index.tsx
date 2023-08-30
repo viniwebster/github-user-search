@@ -1,8 +1,11 @@
-import { useState } from 'react';
 import { CiLight } from 'react-icons/ci';
 import { FaRegMoon } from 'react-icons/fa';
 import styled from 'styled-components';
-import { txtHighContrast } from 'UI/variables';
+
+interface PropsToggle{
+    switchTheme: () => void
+    iconTheme: boolean
+}
 
 const BtnToggle = styled.button`
     display: flex;
@@ -14,20 +17,19 @@ const BtnToggle = styled.button`
 `
 
 const Text = styled.p`
-    color: ${txtHighContrast};
+    color: ${({ theme }) => theme.text};
     letter-spacing: 3px;
     text-transform: uppercase;
 `
 
-export default () => {
-    const [darkMode, setDarkMode] = useState(false)
-
+export default ({ switchTheme, iconTheme }: PropsToggle) => {
     return(
-        <BtnToggle onClick={() => setDarkMode(!darkMode)}>
+        <BtnToggle onClick={switchTheme}>
             <Text>
-                {darkMode ? 'Light' : 'Dark'}
+                {iconTheme ? 'Light' : 'Dark'}
             </Text>
-            { darkMode ? <CiLight color='white' size={25}/> : <FaRegMoon color='white' size={20}/>}
+            { iconTheme ? <CiLight color={iconTheme ? 'white' : '#697c9a'} size={25}/> : <FaRegMoon color={iconTheme ? 'white' : '#697c9a'
+            } size={20}/>}
         </BtnToggle>
     )
 }

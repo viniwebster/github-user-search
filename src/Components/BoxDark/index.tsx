@@ -1,10 +1,9 @@
 import { dados } from 'context/ApiContext';
 import styled from 'styled-components';
 import { Paragrafos, TextBold, Box } from "UI";
-import { bg } from 'UI/variables';
 
 const BoxDark = styled(Box)`
-  background-color: ${bg};
+  background-color: ${({ theme }) => theme.bgBox};
   padding: 1rem 2rem;
   width: 100%;
 

@@ -11,12 +11,12 @@ export const Container = styled.section`
     margin: auto;
     padding: 4rem 0;
     @media screen and (max-width: 890px){
-        max-width: 80vw;
+        max-width: 90vw;
     }
 `
 
 export const Box = styled.section`
-    background-color: ${bgSecondary};
+    background-color: ${({ theme }) => theme.bg};
     border-radius: 1rem;
     padding: 3rem;
     width: 100%;
@@ -26,7 +26,7 @@ export const Box = styled.section`
 `
 
 export const Paragrafos = styled.p`
-  color: ${txtHighContrast};
+  color: ${({ theme }) => theme.text};
   @media screen and (max-width: 500px){
     font-size: 14px;
   }
@@ -35,7 +35,7 @@ export const Paragrafos = styled.p`
 export const TextBold = styled.h2`
 font-weight: 700;
 font-size: 24px;
-color: ${txtHighContrast};
+color: ${({ theme }) => theme.text};
 
 @media screen and (max-width: 500px){
     font-size: 18px;

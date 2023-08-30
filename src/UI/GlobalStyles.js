@@ -7,18 +7,18 @@ export default createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-family: ${primaryFont};
+        transition: all 0.2s ease-in-out;
     }
 
     body{ 
-        background-color: ${bg};
+        background-color: ${({ theme }) => theme.bgBox};
     }
 
     li{
         list-style: none;
     }
 
-    a{
+    a {
         text-decoration: none;
-        color: white;
     }
 `

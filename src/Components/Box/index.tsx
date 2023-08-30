@@ -9,21 +9,17 @@ import { dados } from "context/ApiContext";
 
 const BoxInfos = styled(Box)`
   display: flex;
-  width: 100%;
+  flex-wrap: wrap;
+  gap: 2rem;
   min-height: 500px;
 `;
 
 const Profile = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-`;
-
-const InfosProfile = styled.div`
-  display: flex;
+  justify-content: space-between;
   gap: 2rem;
-  width: 100%;
 `;
 
 const Infos = styled.div`
@@ -36,53 +32,34 @@ const Infos = styled.div`
 
 const User = styled.h3`
   color: ${primary};
-  @media screen and (max-width: 500px){
+  @media screen and (max-width: 500px) {
     font-size: 14px;
   }
 `;
 
-const DivInfos = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-`;
-
-const InfosContainer = styled(InfosProfile)`
-  width: 80%;
-  flex-direction: column;
-  @media screen and (max-width: 768px){
-    width: 100%;
-  }
-`
-
 export default () => {
-
   const { name, description, createAt, user } = dados();
 
-  const data = createAt.split('-');
-  
+  const data = createAt.split("-");
+
   return (
     <BoxInfos>
+      <IconProfile />
       <Profile>
-        <InfosProfile>
-          <IconProfile />
           <Infos>
             <div>
               <TextBold>{name}</TextBold>
               <User>@{user}</User>
             </div>
-            <Paragrafos>Joined {data[1]} {data[0]}</Paragrafos>
+            <Paragrafos>
+              Joined {data[1]} {data[0]}
+            </Paragrafos>
           </Infos>
-        </InfosProfile>
-        <DivInfos>
-          <InfosContainer>
-          <Paragrafos>
-              {description ? description : 'This profile has no bio'}
-          </Paragrafos>
-            <BoxDark />
-            <Socials />
-          </InfosContainer>
-        </DivInfos>
+        <Paragrafos>
+          {description ? description : "This profile has no bio"}
+        </Paragrafos>
+        <BoxDark />
+        <Socials />
       </Profile>
     </BoxInfos>
   );
