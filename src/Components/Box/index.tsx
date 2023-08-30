@@ -5,7 +5,7 @@ import { Box, Paragrafos } from "UI";
 import { primary } from "UI/variables";
 import { TextBold } from "UI";
 import BoxDark from "Components/BoxDark";
-import { dados } from "context/ApiContext";
+import { Dados } from "context/ApiContext";
 
 const BoxInfos = styled(Box)`
   display: flex;
@@ -38,7 +38,7 @@ const User = styled.h3`
 `;
 
 export default () => {
-  const { name, description, createAt, user } = dados();
+  const { name, description, createAt, user } = Dados();
 
   const data = createAt.split("-");
 

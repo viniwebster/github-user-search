@@ -1,4 +1,4 @@
-import { dados } from 'context/ApiContext';
+import { Dados } from 'context/ApiContext';
 import styled from 'styled-components';
 import { Paragrafos, TextBold, Box } from "UI";
 
@@ -21,7 +21,7 @@ const InfosUser = styled.ul`
 
 export default () => {
 
-  const { repos, followers, following } = dados();
+  const { repos, followers, following } = Dados();
 
     return (
         <BoxDark>

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { BsSearch } from 'react-icons/bs';
 import Button from 'Components/Button';
-import { bgSecondary, txtHighContrast, primary } from 'UI/variables';
-import { dados } from 'context/ApiContext';
+import { primary } from 'UI/variables';
+import { Dados } from 'context/ApiContext';
 
 const Form = styled.form`
     display: flex;
@@ -40,7 +40,7 @@ const Error = styled.p`
 
 export default () => {
 
-  const { search ,setSearch, searchUser, erro } = dados();
+  const { search ,setSearch, searchUser, erro } = Dados();
 
   return (
     <Form onSubmit={(event) => searchUser(event)}>

@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { BsLink45Deg, BsTwitter } from "react-icons/bs";
 import { IoLocationOutline } from "react-icons/io5";
 import { GoOrganization } from "react-icons/go";
-import { txtHighContrast } from "UI/variables";
-import { dados } from "context/ApiContext";
+import { Dados } from "context/ApiContext";
 
 interface PropsSocialsIcons {
   notFould?: string | number | null;
@@ -34,7 +33,7 @@ const SocialsIcons = styled.div<PropsSocialsIcons>`
 `;
 
 export default () => {
-  const { twitter, company, location, blog } = dados();
+  const { twitter, company, location, blog } = Dados();
 
   return (
     <Socials>
@@ -47,13 +46,14 @@ export default () => {
         <a
           href={twitter ? `https://www.twitter.com/${twitter}` : undefined}
           target="_blank"
+          rel="noreferrer"
         >
           {twitter ? `@${twitter}` : "Not Available"}
         </a>
       </SocialsIcons>
       <SocialsIcons notFould={blog === "" ? 1 : 0}>
         <BsLink45Deg size={25} />
-        <a href={blog ? blog : undefined} target="_blank">
+        <a href={blog ? blog : undefined} target="_blank" rel="noreferrer">
           {blog ? blog : "Not Available"}
         </a>
       </SocialsIcons>

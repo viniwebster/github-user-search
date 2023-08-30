@@ -7,7 +7,7 @@ interface ApiProviderProps {
   search?: string;
 }
 
-interface ApiContext {
+interface ApiContextData {
   name: string;
   icon: string;
   description: string;
@@ -26,7 +26,7 @@ interface ApiContext {
   erro?: boolean;
 }
 
-export const ApiContext = createContext({} as ApiContext);
+export const ApiContext = createContext({} as ApiContextData);
 
 export default function ApiProvider({ children }: ApiProviderProps) {
   const [search, setSearch] = useState("");
@@ -115,6 +115,6 @@ export default function ApiProvider({ children }: ApiProviderProps) {
   );
 }
 
-export function dados() {
+export function Dados() {
   return useContext(ApiContext);
 }
